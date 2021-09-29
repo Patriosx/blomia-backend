@@ -1,0 +1,44 @@
+### añadir nueva planta
+POST http://localhost:5000/plantas HTTP/1.1
+content-type: application/json
+
+{
+    "Nombre": "Planta 1",
+	"Referencia": "Esta planta da risa",
+	"Tamaño": 1.20,
+	"Stock": 8,
+	"Activo": true,
+	"Tipo": "Oregano",
+	"Precio": 2.50,
+	"Foto": "FOTO"
+}
+### añadir nueva planta heroku
+POST https://blomia.herokuapp.com/plantas HTTP/1.1
+content-type: application/json
+
+{
+    "Nombre": "Planta 2",
+	"Referencia": "Esta planta da risa",
+	"Tamaño": 1.20,
+	"Stock": 8,
+	"Activo": true,
+	"Tipo": "Oregano",
+	"Precio": 2.50,
+	"Foto": "FOTO"
+}
+
+### Obtener todas las plantas
+GET http://localhost:5000/plantas/
+
+### Buscar planta por nombre
+GET http://localhost:5000/plantas/Planta 1
+
+### Eliminar planta
+DELETE http://localhost:5000/plantas/eliminar/61534cb06a65282218ba9ea8 HTTP/1.1
+
+### Cambiar estado activo
+GET http://localhost:5000/plantas/activo/615355747e35f8117ffd11f4
+
+### Cambiar estado activo
+GET https://blomia.herokuapp.com/plantas/activo/615355747e35f8117ffd11f4
+
