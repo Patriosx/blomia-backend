@@ -34,10 +34,10 @@ GET http://localhost:5000/plantas/
 GET http://localhost:5000/plantas/Planta 1
 
 ### Eliminar planta
-DELETE http://localhost:5000/plantas/eliminar/61534cb06a65282218ba9ea8 HTTP/1.1
+DELETE http://localhost:5000/plantas/eliminar/6165aad35357ffcb01aeff92 HTTP/1.1
 
 ### Cambiar estado activo
-GET http://localhost:5000/plantas/activo/615355747e35f8117ffd11f4
+GET http://localhost:5000/plantas/activo/6165abbf5357ffcb01aeff98
 
 ### Cambiar estado activo
 GET https://blomia.herokuapp.com/plantas/activo/615355747e35f8117ffd11f4
