@@ -106,7 +106,7 @@ const modificarPlanta = async (req, res, next) => {
 	planta.Nombre = Nombre ? Nombre : planta.Nombre;
 	planta.Referencia = Referencia ? Referencia : planta.Referencia;
 	planta.Tamaño = Tamaño ? Tamaño : planta.Tamaño;
-	planta.Activo = Activo ? Activo : planta.Activo;
+	// planta.Activo = Activo ? Activo : planta.Activo;
 	planta.Stock = Stock ? Stock : planta.Stock;
 	planta.Precio = Precio ? Precio : planta.Precio;
 	planta.Foto = Foto ? Foto : planta.Foto;
@@ -128,7 +128,6 @@ const modificarPlanta = async (req, res, next) => {
  * TODO
  * Metodos:
 
- * - Modificar planta
  */
 exports.agregarNuevaPlanta = agregarNuevaPlanta;
 exports.obtenerPlantas = obtenerPlantas;
