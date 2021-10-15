@@ -84,6 +84,45 @@ const cambiarActivo = async (req, res, next) => {
 	// res.json({ respuesta });
 	res.send(`Server: Actualizado: Activo = ${respuesta.Activo}`);
 };
+
+const modificarPlanta = async (req, res, next) => {
+	const { Nombre, Referencia, Tamaño, Activo, Stock, Precio } = req.body;
+
+	try {
+		planta = await Plantas.findById(req.params);
+		existeReferencia = await Plantas.findOne({ Referencia });
+	} catch (error) {
+		console.log(error);
+		E = new Error("Server: Fallo en la busqueda. Intentalo otra vez");
+		E.code = 404;
+		return next(E);
+	}
+
+	if (existeReferencia && existeReferencia.Referencia !== planta.Referencia) {
+		const err = new Error("Server: Ya existe una planta con esta referencia");
+		err.code = 500; // Internal Server Error
+		return next(err);
+	}
+	planta.Nombre = Nombre ? Nombre : planta.Nombre;
+	planta.Referencia = Referencia ? Referencia : planta.Referencia;
+	planta.Tamaño = Tamaño ? Tamaño : planta.Tamaño;
+	planta.Activo = Activo ? Activo : planta.Activo;
+	planta.Stock = Stock ? Stock : planta.Stock;
+	planta.Precio = Precio ? Precio : planta.Precio;
+
+	try {
+		planta.save();
+	} catch (error) {
+		const err = new Error("Server: No se ha podido guardar la información actualizada");
+		err.code = 500; // Internal Server Error
+		return next(err);
+	}
+	console.log("backend: Planta modificada");
+	// Devolvemos mensaje de estado OK y el usuario modificado.
+	res.status(200).json({
+		planta_actualizada: planta,
+	});
+};
 /*****************************************
  * TODO
  * Metodos:
@@ -96,3 +135,4 @@ exports.obtenerPlantaPorNombre = obtenerPlantaPorNombre;
 exports.eliminarPlanta = eliminarPlanta;
 exports.cambiarActivo = cambiarActivo;
 exports.comprobarGuardado = comprobarGuardado;
+exports.modificarPlanta = modificarPlanta;

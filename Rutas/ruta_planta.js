@@ -8,4 +8,5 @@ router.get("/buscar/:nombre", ctrl.obtenerPlantaPorNombre);
 router.delete("/eliminar/:_id", ctrl.eliminarPlanta);
 router.get("/activo/:_id", ctrl.cambiarActivo);
 router.get("/comprobar/:ref", ctrl.comprobarGuardado);
+router.patch("/modificar/:_id", ctrl.modificarPlanta);
 module.exports = router;
