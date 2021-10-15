@@ -86,7 +86,7 @@ const cambiarActivo = async (req, res, next) => {
 };
 
 const modificarPlanta = async (req, res, next) => {
-	const { Nombre, Referencia, Tamaño, Activo, Stock, Precio } = req.body;
+	const { Nombre, Referencia, Tamaño, Activo, Stock, Precio, Foto } = req.body;
 
 	try {
 		planta = await Plantas.findById(req.params);
@@ -109,6 +109,7 @@ const modificarPlanta = async (req, res, next) => {
 	planta.Activo = Activo ? Activo : planta.Activo;
 	planta.Stock = Stock ? Stock : planta.Stock;
 	planta.Precio = Precio ? Precio : planta.Precio;
+	planta.Foto = Foto ? Foto : planta.Foto;
 
 	try {
 		planta.save();
