@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Plantas = require("../Modelos/plantas");
+const cloudinary = require("cloudinary").v2;
 
 const comprobarGuardado = async (req, res, next) => {
 	try {
@@ -55,13 +56,26 @@ const obtenerPlantaPorNombre = async (req, res, next) => {
 	respuesta ? res.json({ respuesta }) : res.send("Server: No se encontró esta planta");
 };
 const eliminarPlanta = async (req, res, next) => {
+	let public_id = "";
+	cloudinary.config({
+		cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+		api_key: process.env.CLOUDINARY_API_KEY,
+		api_secret: process.env.CLOUDINARY_API_SECRET,
+	});
 	try {
-		elimina = await Plantas.findByIdAndDelete(req.params);
+		elimina = await Plantas.findOne(req.params);
+		public_id = elimina.Foto[1];
+		cloudinary.uploader.destroy(public_id, function (result) {
+			console.log(result);
+		});
+		elimina.remove();
 	} catch (error) {
+		console.log(error);
 		E = new Error("Server: Fallo en la busqueda");
 		E.code = 404;
 		return next(E);
 	}
+
 	res.send("Server: Planta eliminada");
 };
 
