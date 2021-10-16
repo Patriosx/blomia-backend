@@ -110,7 +110,7 @@ const modificarPlanta = async (req, res, next) => {
 	planta.Stock = Stock ? Stock : planta.Stock;
 	planta.Precio = Precio ? Precio : planta.Precio;
 	planta.Foto = Foto ? Foto : planta.Foto;
-
+	//Array precio controlado en frontend en el componente Editar
 	try {
 		planta.save();
 	} catch (error) {

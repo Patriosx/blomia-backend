@@ -24,7 +24,7 @@ content-type: application/json
 	"Activo": true,
 	"Tipo": "Oregano",
 	"Precio": 2.50,
-	"Foto": "FOTO"
+	"Foto": ["FOTO", "publicID"]
 }
 
 ### Obtener todas las plantas
@@ -43,23 +43,17 @@ GET http://localhost:5000/plantas/activo/6165abbf5357ffcb01aeff98
 GET https://blomia.herokuapp.com/plantas/activo/6169d23e1e3a3da220c09867
 
 ### modificar
-patch http://localhost:5000/plantas/modificar/616880163cf0189824c95be6 HTTP/1.1
+patch http://localhost:5000/plantas/modificar/6169d23e1e3a3da220c09867 HTTP/1.1
 content-type: application/json
 
 {
-	"Referencia": "REF2000",
-	"Tamaño": "12 litros",
-	"Stock": 88,
-	"Activo": true,
-	"Precio": [2.50,10,11,13]
+	"Tamaño": "xl"
 }
 ### modificar
 patch https://blomia.herokuapp.com/plantas/modificar/6169d23e1e3a3da220c09867 HTTP/1.1
 content-type: application/json
 
 {
-
-	"Stock": 880,
-
-	"Precio": [2.50,10,11]
+"Precio": [2.50]
 }
+###	"Precio": [2.50,10,11,13]

@@ -7,6 +7,6 @@ const plantaEsquema = new mongoose.Schema({
 	Stock: Number,
 	Activo: Boolean,
 	Precio: [Number],
-	Foto: { type: String, required: true },
+	Foto: [String],
 });
 module.exports = mongoose.model("Planta", plantaEsquema);
