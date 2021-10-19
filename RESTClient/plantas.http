@@ -34,7 +34,7 @@ GET http://localhost:5000/plantas/
 GET http://localhost:5000/plantas/Planta 1
 
 ### Eliminar planta
-DELETE http://localhost:5000/plantas/eliminar/616ae0f2d6248417620c0936 HTTP/1.1
+DELETE http://localhost:5000/plantas/eliminar/616ae392d6248417620c093b HTTP/1.1
 
 ### Cambiar estado activo
 GET http://localhost:5000/plantas/activo/6165abbf5357ffcb01aeff98
@@ -43,17 +43,18 @@ GET http://localhost:5000/plantas/activo/6165abbf5357ffcb01aeff98
 GET https://blomia.herokuapp.com/plantas/activo/6169d23e1e3a3da220c09867
 
 ### modificar
-patch http://localhost:5000/plantas/modificar/6169d23e1e3a3da220c09867 HTTP/1.1
+patch http://localhost:5000/plantas/modificar/616ae5baf29f3387eaec5fb7 HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjYxNmRiNzMxNjczNGNjNDA2M2JiNzM4YiIsIk5vbWJyZSI6ImFkbWluIiwiaWF0IjoxNjM0NTg1OTMzLCJleHAiOjE2MzQ2MDc1MzN9.zCfu0T4GsIQnDMDRyLvI_FA9l4GK4c2KvJPzR3Vjv70
 
 {
-	"Tamaño": "xl"
+	"Precio": [1000]
 }
 ### modificar
-patch https://blomia.herokuapp.com/plantas/modificar/6169d23e1e3a3da220c09867 HTTP/1.1
+patch https://blomia.herokuapp.com/plantas/modificar/616ae5baf29f3387eaec5fb7 HTTP/1.1
 content-type: application/json
 
 {
-"Precio": [2.50]
+"Precio": [0.99]
 }
 ###	"Precio": [2.50,10,11,13]

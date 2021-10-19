@@ -1,0 +1,18 @@
+### Creacion de un nuevo usuario
+POST http://localhost:5000/usuarios HTTP/1.1
+content-type: application/json
+
+{
+    "Nombre": "admin",
+    "Password": "123456",
+    "Tipo": "admin"
+}
+
+### Inicio de sesion
+POST http://localhost:5000/usuarios/login HTTP/1.1
+content-type: application/json
+
+{
+    "Nombre": "admin",
+    "Password": "123456"
+}

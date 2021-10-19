@@ -10,6 +10,8 @@ app.use(express.json());
 /**  RUTAS **/
 const plantas = require("./Rutas/ruta_planta");
 app.use("/plantas", plantas);
+const usuarios = require("./Rutas/ruta_usuario");
+app.use("/usuarios", usuarios);
 
 // app.use("/public", express.static(`${__dirname}/storage`));
 /**  Gestión de errores **/
