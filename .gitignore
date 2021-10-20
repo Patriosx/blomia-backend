@@ -1,3 +1,4 @@
 node_modules/
+#a ver si no agrega esto
 .env
 .gitignore
