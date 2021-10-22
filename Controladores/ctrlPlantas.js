@@ -138,6 +138,32 @@ const modificarPlanta = async (req, res, next) => {
 		planta_actualizada: planta,
 	});
 };
+
+const modificarStock = async (req, res, next) => {
+	try {
+		planta = await Plantas.findById(req.params);
+	} catch (error) {
+		E = new Error("Server: Fallo en la busqueda. Intentalo otra vez");
+		E.code = 404;
+		return next(E);
+	}
+
+	const { Stock } = req.body;
+	planta.Stock = Stock;
+
+	try {
+		planta.save();
+	} catch (error) {
+		const err = new Error("Server: No se ha podido guardar la información actualizada");
+		err.code = 500; // Internal Server Error
+		return next(err);
+	}
+	console.log("backend: Stock actualizado");
+	// Devolvemos mensaje de estado OK y el usuario modificado.
+	res.status(200).json({
+		planta_actualizada: planta,
+	});
+};
 /*****************************************
  * TODO
  * Metodos:
@@ -150,3 +176,4 @@ exports.eliminarPlanta = eliminarPlanta;
 exports.cambiarActivo = cambiarActivo;
 exports.comprobarGuardado = comprobarGuardado;
 exports.modificarPlanta = modificarPlanta;
+exports.modificarStock = modificarStock;
