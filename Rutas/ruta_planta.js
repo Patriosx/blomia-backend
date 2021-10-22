@@ -8,10 +8,10 @@ router.get("/buscar/:nombre", ctrl.obtenerPlantaPorNombre);
 router.get("/activo/:_id", ctrl.cambiarActivo);
 router.patch("/stock/:_id", ctrl.modificarStock);
 
+router.get("/comprobar/:ref", ctrl.comprobarGuardado);
 router.use(comprobarAutorizacion);
 /** Zona restrigida **/
 router.post("/", ctrl.agregarNuevaPlanta);
-router.get("/comprobar/:ref", ctrl.comprobarGuardado);
 router.delete("/eliminar/:_id", ctrl.eliminarPlanta);
 router.patch("/modificar/:_id", ctrl.modificarPlanta);
 module.exports = router;
