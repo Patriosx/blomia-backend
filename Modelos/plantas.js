@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const plantaEsquema = new mongoose.Schema({
-	Nombre: { type: String, required: true },
+	Nombre: { type: String },
 	Referencia: { type: String, required: true },
 	Tamaño: { type: String },
 	Stock: Number,

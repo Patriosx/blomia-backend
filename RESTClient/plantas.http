@@ -60,9 +60,9 @@ content-type: application/json
 ###	"Precio": [2.50,10,11,13]
 
 ### modificar
-patch http://localhost:5000/plantas/stock/616ae5baf29f3387eaec5fb7 HTTP/1.1
+patch http://blomia.herokuapp.com/plantas/stock/616ae5baf29f3387eaec5fb7 HTTP/1.1
 content-type: application/json
 
 {
-	"Stock": 25
+	"Stock": 2500
 }
