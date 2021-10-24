@@ -55,6 +55,24 @@ const obtenerPlantaPorNombre = async (req, res, next) => {
 	}
 	respuesta ? res.json({ respuesta }) : res.send("Server: No se encontró esta planta");
 };
+const eliminarFotoVieja = async (req, res, next) => {
+	let public_id = req.params.fotoId;
+	cloudinary.config({
+		cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+		api_key: process.env.CLOUDINARY_API_KEY,
+		api_secret: process.env.CLOUDINARY_API_SECRET,
+	});
+	try {
+		cloudinary.uploader.destroy(public_id, function (result) {
+			console.log(result);
+		});
+	} catch (error) {
+		E = new Error("Server: Error al eliminar la foto de cloudinary");
+		E.code = 500;
+		return next(E);
+	}
+	res.send("Cloudinary: Foto eliminada");
+};
 const eliminarPlanta = async (req, res, next) => {
 	let public_id = "";
 	cloudinary.config({
@@ -177,3 +195,4 @@ exports.cambiarActivo = cambiarActivo;
 exports.comprobarGuardado = comprobarGuardado;
 exports.modificarPlanta = modificarPlanta;
 exports.modificarStock = modificarStock;
+exports.eliminarFotoVieja = eliminarFotoVieja;

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Usuario = require("../Modelos/usuarios");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
 const altaUsuario = async (req, res, next) => {
 	const { Nombre, Password, Tipo } = req.body;
 
