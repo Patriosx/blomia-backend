@@ -3,8 +3,19 @@ App creada para la empresa Blomia. Resolverá el problema del inventario de su v
 
 El trabajador va a poder agregar una planta con determinada información a una base de datos. Tomará una foto del ejemplar y rellenará un formulario con información referente a este.
 
-Tecnologías Frontend: HTML CSS Javascript Reactjs Bootstrap
+Tecnologías Frontend: https://github.com/Patriosx/blomia-frontend <br>
+<br>
+  HTML<br>
+  CSS<br>
+  Javascript<br>
+  Reactjs<br>
+  Bootstrap<br>
 
-Tecnologías Backend: Nodejs Express MongoDB Mongoose
+<strong>Tecnologías Backend: </strong>
+<br>
+Nodejs<br>
+Express<br>
+MongoDB<br>
+Mongoose<br>
 
 DEMO: https://blomiaviveros.herokuapp.com/
