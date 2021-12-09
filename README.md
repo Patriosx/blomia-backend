@@ -18,4 +18,6 @@ Express<br>
 MongoDB<br>
 Mongoose<br>
 
+**Se usó Cloudinary para almacenar las fotos
+
 DEMO: https://blomiaviveros.herokuapp.com/
